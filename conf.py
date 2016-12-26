@@ -31,7 +31,7 @@ import sphinx_rtd_theme
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.imgmath']
+extensions = ['sphinx.ext.imgmath',]# 'sphinxcontrib.exceltable']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'DFS: Analyse d’un circuit électronique (CERN)'
+project = 'DFS: Electronic circuit analysis (CERN)'
 copyright = '2016, Antoine Zen-Ruffinen'
 author = 'Antoine Zen-Ruffinen'
 
