@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Introduction &mdash; DFS: Electronic circuit analysis (CERN) 0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="DFS: Electronic circuit analysis (CERN) 0.0 documentation" href="index.html"/>
+        <link rel="next" title="3. Theoretical background" href="background.html"/>
+        <link rel="prev" title="DFS: Electronic circuit analysis (CERN)" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> DFS: Electronic circuit analysis (CERN)
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#circuit-overview">2. Circuit overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="background.html">3. Theoretical background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">4. Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html#conclusion">5. Conclusion</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">DFS: Electronic circuit analysis (CERN)</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>1. Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/intro.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>This document describes the reliability analysis done on the &#8220;SPEC&#8221; card developed by the CERN in the context of the OHWR project. The final goal of this analysis is to compute the &#8220;Mean Time Between Failures&#8221; or MTBF of the whole card.</p>
+</div>
+<div class="section" id="circuit-overview">
+<h1>2. Circuit overview<a class="headerlink" href="#circuit-overview" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id1">
+<img alt="_images/spec_v1.1_top.JPG" src="_images/spec_v1.1_top.JPG" />
+<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">SPEC V4 board</span></p>
+</div>
+<p>The proposed Circuit (SPEC V4) is made of a single PCB. This PCB is a FGPA card meant to be used inside a PC connected trough the PCI-Express (PCIe) bus. The card also offers a FMC connector and SFP interface. FMC stand for &#8220;FPGA Mezzanine Connector&#8221;, it is an open standard that propose standardized between a FPGA board and mezzanine cards. SFP is a generic connector for cooper and fiber based Ethernet. The <a class="reference internal" href="#fmc-mez-example"><span class="std std-numref">Fig. 2.2</span></a> is an example of FMC mezzanine cards:</p>
+<div class="figure" id="id2">
+<span id="fmc-mez-example"></span><img alt="_images/UMFT601X.jpg" src="_images/UMFT601X.jpg" />
+<p class="caption"><span class="caption-number">Fig. 2.2 </span><span class="caption-text">FMC mezzanine card example</span></p>
+</div>
+<p>This card can be also utilized stand-alone thanks to a power connector, USB to serial bridge and USB JTAG interface.</p>
+<p>This card can be decomposed in the following blocks:</p>
+<dl class="docutils">
+<dt>FPGA</dt>
+<dd>The Xilinx Spartan 6FGPA is the central piece of this circuit. This block also contains all supporting passives components (Decoupling caps, line terminations resistors, etc...)</dd>
+<dt>PCIe Bridge</dt>
+<dd>This block is converting the PCIe signal to signal that can be interfaced to the FPGA. This block is build around the Genum GN4124 IC.</dd>
+<dt>DDR</dt>
+<dd>The RAM for the FPGA.</dd>
+<dt>PSU</dt>
+<dd>Power supply for the whole circuit.</dd>
+<dt>Clock Generation</dt>
+<dd>Quartz, oscillator and clock distributions ICs.</dd>
+</dl>
+<p>From this, the block diagram from <a class="reference internal" href="#block-diagram"><span class="std std-numref">Fig. 2.3</span></a> can be drawn:</p>
+<div class="figure" id="id3">
+<span id="block-diagram"></span><img alt="Block diagram." src="_images/Block_diagram.png" />
+<p class="caption"><span class="caption-number">Fig. 2.3 </span><span class="caption-text">SPEC v4 Block diagram.</span></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="background.html" class="btn btn-neutral float-right" title="3. Theoretical background" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="DFS: Electronic circuit analysis (CERN)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Antoine Zen-Ruffinen.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

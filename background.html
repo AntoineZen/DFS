@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Theoretical background &mdash; DFS: Electronic circuit analysis (CERN) 0.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="DFS: Electronic circuit analysis (CERN) 0.0 documentation" href="index.html"/>
+        <link rel="next" title="4. Analysis" href="analysis.html"/>
+        <link rel="prev" title="1. Introduction" href="intro.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> DFS: Electronic circuit analysis (CERN)
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html#circuit-overview">2. Circuit overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Theoretical background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fit-calculation">3.1. FIT calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iec-62300">3.2. IEC 62300</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#survival-probability">3.3. Survival probability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">4. Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html#conclusion">5. Conclusion</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">DFS: Electronic circuit analysis (CERN)</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>3. Theoretical background</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/background.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="theoretical-background">
+<h1>3. Theoretical background<a class="headerlink" href="#theoretical-background" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fit-calculation">
+<h2>3.1. FIT calculation<a class="headerlink" href="#fit-calculation" title="Permalink to this headline">¶</a></h2>
+<p>The key parameter for reliability calculation is the &#8220;failure rate&#8221;, denoted <img class="math" src="_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/> and expressed in &#8220;FIT&#8221;. FIT stands for &#8220;Failures In Time&#8221;. One FIT represent on failure per <img class="math" src="_images/math/efe8c3b1dfba1f7cf45cd0f2e87ba3e8d48690ac.png" alt="10^9"/> hours, or <img class="math" src="_images/math/62c5829149c01ab51baeb0702dafd1753d541177.png" alt="10^{-9}"/> failure per hours. The &#8220;Mean Time Between Failures&#8221; or MTBF is the inverse of the FIT:</p>
+<div class="math">
+<p><img src="_images/math/7a3b25ff4ed2bf859db8db0c47b7a79ebf9eb043.png" alt="MTBF = \frac{10^9}{\lambda}"/></p>
+</div><p>The failure rate of a complex system, here a fitted PCB, can be calculated from the FIT from the components it is made of. When the component or sub-system are inter-dependent (when the failure of one component affects another) FIT can be added.</p>
+<div class="math">
+<p><img src="_images/math/985918137a70a4118ebd2efd6b2193703b02b9df.png" alt="\lambda_{T} = \lambda_{IC1} + \lambda_{IC2}"/></p>
+</div><p>When two component of sub-systems are redundant (the same function is implemented twice), FIT can be calculated as follow:</p>
+<div class="math">
+<p><img src="_images/math/31159843bbf40e623ac8d3a6acaeb3171f29d191.png" alt="\lambda _{T} = \frac{1}{ \frac{1}{ \lambda_{IC1}} + \frac{1}{\lambda_{IC2} } }"/></p>
+</div></div>
+<div class="section" id="iec-62300">
+<h2>3.2. IEC 62300<a class="headerlink" href="#iec-62300" title="Permalink to this headline">¶</a></h2>
+<p>The reliability of a PCB circuit can be calumniated using the guide lines described in the IEC-62380. Other standard applies to specific domains (Space, Aero, etc..) or companies, but IEC-62380 can be used in general cases for Electronics.</p>
+<p>This norm gives equation to computes the failure rate in FITs of all component encounter on an electronic circuits as wheel equation to compute the reliability of the bare PCB and finally to compute the Failure rate of the whole assembled PCB.</p>
+<p>The norm start by giving the equation to compute the FITs for an assembled PCB:</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="_images/IEC-62380-6.1.png"><img alt="FIT equation for assembled PCB" src="_images/IEC-62380-6.1.png" style="width: 740.25px; height: 77.25px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">IEC-62380 equation to compute FIT for an assembled PCB.</span></p>
+</div>
+<p>This tells that the the failure rate of the assembled PCB is the failure rate of the components an connections (<strong>A</strong> in the equations) plus the failure rate of the bare PCB (<strong>B</strong> in the equation).</p>
+<p>Then the norm gives the equation to compute the failure rate of the bare PCB as follow:</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="_images/IEC-62380-B.png"><img alt="FIT equation for bare PCB" src="_images/IEC-62380-B.png" style="width: 462.75px; height: 309.75px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">IEC-62380 equation to compute FIT for a bare PCB.</span></p>
+</div>
+<p>And the failure rate of components and connections:</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="_images/IEC-62380-A.png"><img alt="FIT equation for assembled PCB" src="_images/IEC-62380-A.png" style="width: 571.5px; height: 108.75px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">IEC-62380 equation to compute FIT for an components and connections.</span></p>
+</div>
+<p>The norms then gives equation to compute the failure rate of all different components that one can find on a PCB board (transistors, diodes, passives, ICs, etc..). Here after is an example for a low power transistor:</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="_images/IEC-62380-8.4.png"><img alt="FIT equation for low power transistor" src="_images/IEC-62380-8.4.png" style="width: 614.25px; height: 176.25px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.4 </span><span class="caption-text">IEC-62380 equation to compute FIT for a low power transistor.</span></p>
+</div>
+<p>This norms can guide the reliability engineer to manual calculate the reliability of the designed PCB circuit. However, we can see that the aboves equations are fairly complicated. Such a manual calculation can take some time. Luckily, there the &#8220;MTBF calculator by ALD&#8221; can help. This program use all the equations given in the norm to compute the MTBF for all component type for all majors norms. This program is available as a free-ware at <a class="reference external" href="http://aldservice.com/Reliability-Software/free-mtbf-calculator.html">http://aldservice.com/Reliability-Software/free-mtbf-calculator.html</a>.</p>
+<p>The failure rate can then be used to compute survival probability.</p>
+</div>
+<div class="section" id="survival-probability">
+<h2>3.3. Survival probability<a class="headerlink" href="#survival-probability" title="Permalink to this headline">¶</a></h2>
+<p>In general, we can model the survival probability using a negative exponential function as follow:</p>
+<div class="math">
+<p><img src="_images/math/3ea4de19ecceb55e29b52ea764985950774b8e6d.png" alt="R(t) = e^{-\lambda t}"/></p>
+</div><p>This expression gives out a survival population in percent for a given system with known reliability <img class="math" src="_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/>. Note that in this equation, <img class="math" src="_images/math/76f1d8ace30435987c01a00ca53a71cba1f40e6c.png" alt="\lambda"/> must be given in failure per hours, so <img class="math" src="_images/math/06bad6f844ff8edf6e900a1b7e050c9826f4d15e.png" alt="\lambda = FIT \cdot 10^{-9}"/>. This model apply to the &#8220;useful life&#8221; of the system. It does n&#8217;t fit to the early life and the wear out period.</p>
+<p>The MTBF definition also comes from this model:</p>
+<div class="math">
+<p><img src="_images/math/d85845e422589fb5d01072202330017a9d47a429.png" alt="R(MTBF) = e^{ -\lambda * \frac{1}{\lambda} } = e^{-1} = 0.368"/></p>
+</div><p>Statistically, when reaching the MTBF a population of 36.8% must remains functional.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="analysis.html" class="btn btn-neutral float-right" title="4. Analysis" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="1. Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Antoine Zen-Ruffinen.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
