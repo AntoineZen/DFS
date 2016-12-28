@@ -29,22 +29,38 @@ This norm gives equation to computes the failure rate in FITs of all component e
 
 The norm start by giving the equation to compute the FITs for an assembled PCB:
 
-.. image:: img/IEC-62380-6.1.png
+.. figure:: img/IEC-62380-6.1.png
+    :scale: 75%
+    :alt: FIT equation for assembled PCB
+    
+    IEC-62380 equation to compute FIT for an assembled PCB.
 
 This tells that the the failure rate of the assebled PCB is the failure rate of the components an connections (**A** in the equations) plus the failure rate of the bare PCB (**B** in the equation).
 
 Then the norm gives the equation to compute the failure rate of the bare PCB as follow:
 
-.. image:: img/IEC-62380-B.png
+.. figure:: img/IEC-62380-B.png
+    :scale: 75%
+    :alt: FIT equation for bare PCB
+    
+    IEC-62380 equation to compute FIT for a bare PCB.
 
 And the failure rate of components and connections:
 
-.. image:: img/IEC-62380-A.png
+.. figure:: img/IEC-62380-A.png
+    :scale: 75%
+    :alt: FIT equation for assembled PCB
+    
+    IEC-62380 equation to compute FIT for an components and connections.
 
 
 The norms then gives equation to compute the failure rate of all different components that one can find on a PCB board (transistors, diodes, passives, ICs, etc..). Here after is an example for a low power transistor:
 
-.. image:: img/IEC-62380-8.4.png
+.. figure:: img/IEC-62380-8.4.png
+    :scale: 75%
+    :alt: FIT equation for low power transistor
+    
+    IEC-62380 equation to compute FIT for a low power transistor.
 
 This norms can guide the reliabilty engineer to manualy calculate the reliability of the designed PCB cuircuit. However, we can see that the aboves equations are faireley complicated. Such a manual calculation can take some time. Luckly, there the "MTBF calculator by ALD" can help. This program use all the equations given in the norm to compute the MTBF for all component type for all majors norms. This program is available as a freeware at http://aldservice.com/Reliability-Software/free-mtbf-calculator.html.
 

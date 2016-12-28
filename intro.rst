@@ -7,11 +7,16 @@ This document describes the reliability analysis done on the "SPEC" card develop
 Circuit overview
 ================
 
-.. image:: img/spec_v1.1_top.JPG
+.. figure:: img/spec_v1.1_top.JPG
+    
+    SPEC V4 board
 
-The proposed Circuit is made of a single PCB. This PCB is a FGPA card meant to be used inside a PC connected trought the PCI-Express (PCIe) bus. The card also offers a FMC connector and SFP interface. FMC stand for "FPGA Mezzanine Connector", it is an open standard that propose standardized between a FPGA board and mezzanine cards. SFP is a generic connector for cooper and fiber based Ethernet. The following picture is an example of FMC mezzanine cards:
+The proposed Circuit (SPEC V4) is made of a single PCB. This PCB is a FGPA card meant to be used inside a PC connected trought the PCI-Express (PCIe) bus. The card also offers a FMC connector and SFP interface. FMC stand for "FPGA Mezzanine Connector", it is an open standard that propose standardized between a FPGA board and mezzanine cards. SFP is a generic connector for cooper and fiber based Ethernet. The :numref:`fmc-mez-example` is an example of FMC mezzanine cards:
 
-.. image:: img/UMFT601X.jpg
+.. _fmc-mez-example:
+.. figure:: img/UMFT601X.jpg
+    
+    FMC mezzanine card example
 
 This card can be also utilized stand-alone thanks to a power connector, USB to serial brige and USB JTAG interface.
 
@@ -32,7 +37,11 @@ PSU
 Clock Generation
   Quartz, ocillator and clock distributions ICs.
   
-From this, the following block scheme can be drawn:
+From this, the block diagram from :numref:`block-diagram` can be drawn:
 
-.. image:: img/Block_diagram.png
+.. _block-diagram:
+.. figure:: img/Block_diagram.png
+    :alt: Block diagram.
+    
+    SPEC v4 Bloack diagram.
 

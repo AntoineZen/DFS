@@ -31,7 +31,7 @@ import sphinx_rtd_theme
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.imgmath',]# 'sphinxcontrib.exceltable']
+extensions = ['sphinx.ext.imgmath']  # , 'sphinxcontrib.exceltable']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -76,7 +76,8 @@ pygments_style = 'sphinx'
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
-
+# Enable to reference figures
+numfig = True
 
 # -- Options for HTML output ----------------------------------------------
 
