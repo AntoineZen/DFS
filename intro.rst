@@ -1,7 +1,7 @@
 Introduction
 ============
 
-This document describes the reliability analysis done on the "SPEC" card developed by the CERN in the context of the OHWR project. The final goal of this analysis is to compute the "Mean Time Between Failures" or MTBF of the whole card.
+This document describes the reliability analysis done on the "SPEC" card developed by the CERN in the context of the OHWR project. SPEC stand for **S**\ imple **P**\ CI-**E**\ press **C**\ arier. The final goal of this analysis is to compute the "Mean Time Between Failures" or MTBF of the whole card.
 
 
 Circuit overview
@@ -23,10 +23,10 @@ This card can be also utilized stand-alone thanks to a power connector, USB to s
 This card can be decomposed in the following blocks:
 
 FPGA
-  The Xilinx Spartan 6FGPA is the central piece of this circuit. This block also contains all supporting passives components (Decoupling caps, line terminations resistors, etc...)
+  The Xilinx Spartan 6 FGPA is the central piece of this circuit. This block also contains all supporting passives components (Decoupling caps, line terminations resistors, etc...)
   
 PCIe Bridge
-  This block is converting the PCIe signal to signal that can be interfaced to the FPGA. This block is build around the Genum GN4124 IC.
+  This block is converting the PCIe signals to signals that can be interfaced to the FPGA. This block is build around the Genum GN4124 IC.
   
 DDR
   The RAM for the FPGA.

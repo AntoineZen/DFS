@@ -2,6 +2,7 @@ Analysis
 ========
 
 The reliability of the circuit was determined in tree steps:
+
  - Lookup for manufacturer data or compute individual component reliability.
  - Compute the block reliability by summing the FITs of the components making the block.
  - Compute the circuit reliability by summit the block FITs.
@@ -15,13 +16,15 @@ The following table gives the Failure rate for each component type in the circui
 .. image:: img/FIT-per-type.png
     :scale: 70 %
 
-Most FITS for the ICs have been taken from manufacturer data. In the table, the cell in orange have been determined by analogy, cell in blue where computed using the "MTBF calculator" This has been done for two IC. Both IC (MT41J128M16HA-15E and M25P32-VMF6P) are manufactured by *Micron Technology* that provides no reliability data.
+Most FITS for the ICs have been taken from manufacturer data. In the table, the cell in orange have been determined by analogy, cell in blue where computed using the "MTBF calculator".
+
+Analogy have been done for two IC. Both IC (MT41J128M16HA-15E and M25P32-VMF6P) are manufactured by *Micron Technology* that provides no reliability data.
 
 The **MT41J128M16HA-15E** is a 2Gbit DRAM from Micron, organized in 16Meg * 16bits * 8 Banks. Data from *Allicance Memory* AS4C32M16D1A-5TIN where use instead. This device is a DRAM organized in 8Meg * 16bits * 4 banks. The manufacturer specify the reliability of this device to 11 FIT. As this device is 4 times smaller that MT41J128M16HA-15E, we can determine a equivalent FIT of 44, so that the reliability is proportional to the memory size.
 
 The **M25P32-VMF6P** is a 32Mb Low-Voltage Serial NOR Flash. As no manufacturer data was available, data from a similar device has been used. Data for *Microchip* have been used. Microchip offers data from the whole 25 family with an FIT of 57.
 
-The **GENNUM GN4124** i is a PCI-Express to local bus bridge. The manufacture (*Gennum*) does not provide reliability data. As this IC is an ASIC (Application Specific IC), it is not possible to estimate a FIT from a similar component. In this case, it is mandatory to use the "MTBF calculator" program. For this device, The program compute a FIT of 50. 
+The **GENNUM GN4124** i is a PCI-Express to local bus bridge. The manufacture (*Gennum*) does not provide reliability data. As this IC is an ASIC (Application Specific IC), it is not possible to estimate a FIT from a similar component. In this case, it is mandatory to use the "MTBF calculator" program. For this device, the program compute a faiure rate of 50 FIT.
 
 Other Passive and discrete component FITs have been computed using the *MTBF calculator* program. When using this program, it is important to choose the **IEC-62380** predication model to set the appropriate norm and the **GF** mission profile. GF mission profile stand from "Ground Fix". As our circuit is a PC card, this seems to be the appropriate profile. 
 
@@ -64,7 +67,7 @@ The result of this calculation can be summarized in the following table:
 | FMC interface	     |   38 FIT    |
 +--------------------+-------------+
 
-Represented in a graphics, this gives the :numref:`fr_by_block`. This figure shows that the larger contributor is the FPGA block, manly because all the large amount of decoupling capacitors. Then comes the Power supply equals with the PCI-Express bridge block.
+The :numref:`fr_by_block` representes the same data as a pie-chart. This figure shows that the larger contributor is the FPGA block, manly because of large amount of decoupling capacitors. Then comes the Power supply equals with the PCI-Express bridge block.
 
 .. _fr_by_block:
 .. figure:: img/FR_dist_by_func.png
@@ -98,9 +101,9 @@ As all block are necessary for the circuit proper function, the circuit failure 
 | **MTBF**           | **168 Year**|
 +--------------------+-------------+
 
-So the whole circuit have 681 FIT, this is equivalent to a MTBF of 1468230 hours which is approximative 168 years. 
+So the whole circuit have 681 FIT, this is equivalent to a MTBF of 1468230 hours which is approximative 168 years.
 
-**Note**** that this calculation does not take into account the reliability of the bare PCB and the connections (solders). This is because those data were unknown.
+**Note** that this calculation does not take into account the reliability of the bare PCB and the connections (solders), because those data were missing in the given task.
 
 Using the exponential law, we can compute the following relations:
 
@@ -109,7 +112,7 @@ Using the exponential law, we can compute the following relations:
 +==========+=====================+
 | 10 ans   | 94.2%               |
 +----------+---------------------+
-| 30 ans   | 83.6%               | 
+| 30 ans   | 83.6%               |
 +----------+---------------------+
 | 50 ans   | 74.2%               |
 +----------+---------------------+
@@ -126,7 +129,7 @@ Using the exponential law, we can compute the following relations:
 Conclusion
 ==========
 
-This project was a simple example to show the process of computing a electronic circuit card reliability. But already, it shows all the difficulties and the problems linked to it, getting thermostable manufacturer data for example.
+This project was a simple example to show the process of computing a electronic circuit card reliability. But already, it shows all the difficulties and the problems linked to it, getting reliable manufacturer data for example.
 
 
 
