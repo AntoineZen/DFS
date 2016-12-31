@@ -11,7 +11,7 @@ The reliability of the circuit was determined in tree steps:
 Per-component failure rate
 --------------------------
 
-The following table gives the Failure rate for each component type in the circuit:
+The following table gives the failure rate for each component type in the circuit:
 
 .. image:: img/FIT-per-type.png
     :scale: 70 %

@@ -5,13 +5,13 @@ This document describes the reliability analysis done on the "SPEC" card develop
 
 
 Circuit overview
-================
+----------------
 
 .. figure:: img/spec_v1.1_top.JPG
     
     SPEC V4 board
 
-The proposed Circuit (SPEC V4) is made of a single PCB. This PCB is a FGPA card meant to be used inside a PC connected trough the PCI-Express (PCIe) bus. The card also offers a FMC connector and SFP interface. FMC stand for "FPGA Mezzanine Connector", it is an open standard that propose standardized between a FPGA board and mezzanine cards. SFP is a generic connector for cooper and fiber based Ethernet. The :numref:`fmc-mez-example` is an example of FMC mezzanine cards:
+The proposed Circuit (SPEC V4) is made of a single PCB. This PCB is a FGPA card meant to be used inside a PC connected trough the PCI-Express (PCIe) bus. The card also offers a FMC connector and SFP interface. FMC stand for "FPGA Mezzanine Connector", it is an open standard that propose an interface between a FPGA board and mezzanine cards. SFP is a generic connector for cooper and fiber based Ethernet. The :numref:`fmc-mez-example` is an example of FMC mezzanine cards:
 
 .. _fmc-mez-example:
 .. figure:: img/UMFT601X.jpg

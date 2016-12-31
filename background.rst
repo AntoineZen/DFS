@@ -24,7 +24,7 @@ When two component of sub-systems are redundant (the same function is implemente
 IEC 62300
 ---------
 
-The reliability of a PCB circuit can be calumniated using the guidelines described in the IEC-62380. Other standard applies to specific domains (Space, Aero, etc..) or can be specific to companies, but IEC-62380 can be used in general cases for Electronics.
+The reliability of a PCB circuit can be calculated using the guidelines described in the IEC-62380. Other standard applies to specific domains (Space, Aero, etc..) or can be specific to companies, but IEC-62380 can be used in general cases for Electronics.
 
 This norm gives equation to computes the failure rate in FITs of all component encounter on an electronic circuits as wheel equation to compute the reliability of the bare PCB and finally to compute the failure rate of the whole assembled PCB. 
 
@@ -92,7 +92,7 @@ Statistically, when reaching the MTBF, a population of 36.8% should remains func
 MTBF calculator
 ---------------
 
-The "MTBF calculator by ALD" can be used to compute reliably data (FIT and MTBF) for all major component types and according an variety of norms. The :numref:`mtbf_calc_mw` show the program main windows where the component type, the norm, the mission profile and the ambient temperature can be selected.
+The "MTBF calculator by ALD" can be used to compute reliably data (FIT and MTBF) for all major component types and according a variety of norms. The :numref:`mtbf_calc_mw` show the program main windows where the component type, the norm, the mission profile and the ambient temperature can be selected.
 
 .. _mtbf_calc_mw:
 .. figure:: img/VirtualBox_Windows_XP_2_09_12_2016_10_19_01.png
