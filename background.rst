@@ -47,7 +47,7 @@ Then the norm gives the equation to compute the failure rate of the bare PCB as 
     
     IEC-62380 equation to compute FIT for a bare PCB.
 
-The figure :numref:`IEC-62380-A` show the equation to compute the FIT for the components. This equation simply shows that we must add the faiure raite of Surface mounted component, trough holes components and other micellaneous connections:
+The figure :numref:`IEC-62380-A` show the equation to compute the FIT for the components. This equation simply shows that we must add the failure rate of Surface mounted component, trough holes components and other miscellaneous connections:
 
 .. _IEC-62380-A:
 .. figure:: img/IEC-62380-A.png
@@ -66,7 +66,7 @@ The norms then gives equation to compute the failure rate of all different compo
     
     IEC-62380 equation to compute FIT for a low power transistor.
 
-This norms can guide the reliability engineer to manual calculate the reliability of the designed circuit. However, we can see that the aboves equations are fairly complicated. Such a manual calculation can take some time. Luckily, there the "MTBF calculator by ALD" can help. This program use all the equations given in the norm to compute theFIT number and MTBF for all component type and for all majors norms, included IEC-62380. This program is available as a free-ware at http://aldservice.com/Reliability-Software/free-mtbf-calculator.html.
+This norms can guide the reliability engineer to manual calculate the reliability of the designed circuit. However, we can see that the aboves equations are fairly complicated. Such a manual calculation can take some time. Luckily, there the "MTBF calculator by ALD" can help. This program use all the equations given in the norm to compute the FIT number and MTBF for all component type and for all majors norms, included IEC-62380. This program is available as a free-ware at http://aldservice.com/Reliability-Software/free-mtbf-calculator.html.
 
 The failure rate can then be used to compute survival probability.
 
@@ -92,7 +92,7 @@ Statistically, when reaching the MTBF, a population of 36.8% should remains func
 MTBF calculator
 ---------------
 
-The "MTBF calculator by ALD" can be used to compute reliabliy data (FIT and MTBF) for all major component types and according an variety of norms. The :numref:`mtbf_calc_mw` show the program main windows where the component type, the norm, the mission profile and the ambiant temperature can be selected.
+The "MTBF calculator by ALD" can be used to compute reliably data (FIT and MTBF) for all major component types and according an variety of norms. The :numref:`mtbf_calc_mw` show the program main windows where the component type, the norm, the mission profile and the ambient temperature can be selected.
 
 .. _mtbf_calc_mw:
 .. figure:: img/VirtualBox_Windows_XP_2_09_12_2016_10_19_01.png
@@ -100,12 +100,12 @@ The "MTBF calculator by ALD" can be used to compute reliabliy data (FIT and MTBF
     MTBF calculator main window.
     
     
-Once, the base parameter selected, clicking the *calculate* button open the component detail windows as shown in :numref:`mtbf_calc_dw`. This windows change accoding the component type and the norm. In this windows, the detailed component paramters can be entered. Once, this windows is closed, the program shows the computed reliability in FIT and MTBF.
+Once, the base parameter selected, clicking the *calculate* button open the component detail windows as shown in :numref:`mtbf_calc_dw`. This windows change according the component type and the norm. In this windows, the detailed component parameters can be entered. Once, this windows is closed, the program shows the computed reliability in FIT and MTBF.
 
 .. _mtbf_calc_dw:
 .. figure:: img/VirtualBox_Windows_XP_2_09_12_2016_10_14_03.png
 
-    MTBF calculator component paramters window.
+    MTBF calculator component parameters window.
 
 
 
