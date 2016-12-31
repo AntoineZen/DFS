@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. Analysis &mdash; DFS: Electronic circuit analysis (CERN) 0.0 documentation</title>
+  <title>3. Analysis &mdash; DFS: Electronic circuit analysis (CERN) 31.12.2016 documentation</title>
   
 
   
@@ -33,8 +33,8 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="DFS: Electronic circuit analysis (CERN) 0.0 documentation" href="index.html"/>
-        <link rel="prev" title="3. Theoretical background" href="background.html"/> 
+    <link rel="top" title="DFS: Electronic circuit analysis (CERN) 31.12.2016 documentation" href="index.html"/>
+        <link rel="prev" title="2. Theoretical background" href="background.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.0
+                31.12.2016
               </div>
             
           
@@ -86,15 +86,14 @@
                 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="intro.html#circuit-overview">2. Circuit overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="background.html">3. Theoretical background</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#per-component-failure-rate">4.1. Per-component failure rate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#per-block-failure-rate">4.2. Per-block failure rate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#circuit-failure-rate">4.3. Circuit failure rate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="background.html">2. Theoretical background</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#per-component-failure-rate">3.1. Per-component failure rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#per-block-failure-rate">3.2. Per-block failure rate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#circuit-failure-rate">3.3. Circuit failure rate</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#conclusion">5. Conclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#conclusion">4. Conclusion</a></li>
 </ul>
 
             
@@ -125,7 +124,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>4. Analysis</li>
+    <li>3. Analysis</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -140,35 +139,35 @@
            <div itemprop="articleBody">
             
   <div class="section" id="analysis">
-<h1>4. Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h1>
-<dl class="docutils">
-<dt>The reliability of the circuit was determined in tree steps:</dt>
-<dd><ul class="first last simple">
+<h1>3. Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h1>
+<p>The reliability of the circuit was determined in tree steps:</p>
+<blockquote>
+<div><ul class="simple">
 <li>Lookup for manufacturer data or compute individual component reliability.</li>
 <li>Compute the block reliability by summing the FITs of the components making the block.</li>
 <li>Compute the circuit reliability by summit the block FITs.</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 <div class="section" id="per-component-failure-rate">
-<h2>4.1. Per-component failure rate<a class="headerlink" href="#per-component-failure-rate" title="Permalink to this headline">¶</a></h2>
-<p>The following table gives the Failure rate for each component type in the circuit:</p>
+<h2>3.1. Per-component failure rate<a class="headerlink" href="#per-component-failure-rate" title="Permalink to this headline">¶</a></h2>
+<p>The following table gives the failure rate for each component type in the circuit:</p>
 <a class="reference internal image-reference" href="_images/FIT-per-type.png"><img alt="_images/FIT-per-type.png" src="_images/FIT-per-type.png" style="width: 1150.8px; height: 1073.8px;" /></a>
-<p>Most FITS for the ICs have been taken from manufacturer data. In the table, the cell in orange have been determined by analogy, cell in blue where computed using the &#8220;MTBF calculator&#8221; This has been done for two IC. Both IC (MT41J128M16HA-15E and M25P32-VMF6P) are manufactured by <em>Micron Technology</em> that provides no reliability data.</p>
+<p>Most FITS for the ICs have been taken from manufacturer data. In the table, the cell in orange have been determined by analogy, cell in blue where computed using the &#8220;MTBF calculator&#8221;.</p>
+<p>Analogy have been done for two IC. Both IC (MT41J128M16HA-15E and M25P32-VMF6P) are manufactured by <em>Micron Technology</em> that provides no reliability data.</p>
 <p>The <strong>MT41J128M16HA-15E</strong> is a 2Gbit DRAM from Micron, organized in 16Meg * 16bits * 8 Banks. Data from <em>Allicance Memory</em> AS4C32M16D1A-5TIN where use instead. This device is a DRAM organized in 8Meg * 16bits * 4 banks. The manufacturer specify the reliability of this device to 11 FIT. As this device is 4 times smaller that MT41J128M16HA-15E, we can determine a equivalent FIT of 44, so that the reliability is proportional to the memory size.</p>
 <p>The <strong>M25P32-VMF6P</strong> is a 32Mb Low-Voltage Serial NOR Flash. As no manufacturer data was available, data from a similar device has been used. Data for <em>Microchip</em> have been used. Microchip offers data from the whole 25 family with an FIT of 57.</p>
-<p>The <strong>GENNUM GN4124</strong> i is a PCI-Express to local bus bridge. The manufacture (<em>Gennum</em>) does not provide reliability data. As this IC is an ASIC (Application Specific IC), it is not possible to estimate a FIT from a similar component. In this case, it is mandatory to use the &#8220;MTBF calculator&#8221; program. For this device, The program compute a FIT of 50.</p>
+<p>The <strong>GENNUM GN4124</strong> i is a PCI-Express to local bus bridge. The manufacture (<em>Gennum</em>) does not provide reliability data. As this IC is an ASIC (Application Specific IC), it is not possible to estimate a FIT from a similar component. In this case, it is mandatory to use the &#8220;MTBF calculator&#8221; program. For this device, the program compute a faiure rate of 50 FIT.</p>
 <p>Other Passive and discrete component FITs have been computed using the <em>MTBF calculator</em> program. When using this program, it is important to choose the <strong>IEC-62380</strong> predication model to set the appropriate norm and the <strong>GF</strong> mission profile. GF mission profile stand from &#8220;Ground Fix&#8221;. As our circuit is a PC card, this seems to be the appropriate profile.</p>
-<p>The figure <a class="reference internal" href="#fit-dist"><span class="std std-numref">Fig. 4.1</span></a> gives an overview of the FIT distribution over the various component types. We can see that for this circuit, the ICs are the larger contributors.</p>
+<p>The figure <a class="reference internal" href="#fit-dist"><span class="std std-numref">Fig. 3.1</span></a> gives an overview of the FIT distribution over the various component types. We can see that for this circuit, the ICs are the larger contributors.</p>
 <div class="figure" id="id1">
 <span id="fit-dist"></span><a class="reference internal image-reference" href="_images/FR_dist_by_type.png"><img alt="FIT distribution" src="_images/FR_dist_by_type.png" style="width: 627.75px; height: 331.5px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.1 </span><span class="caption-text">FIT distribution over component types.</span></p>
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">FIT distribution over component types.</span></p>
 </div>
 <p>Not that for the passive components, only the technology and package have influence on the failure rate. Component value have no influence. As this board is only populated with think film SMD resistance, it is only necessary to make the computation once and use the same value for all resistors. They are two type of capacitor on this board, Aluminum solid electrolytic and X7R ceramic capacitor. So there is only two FIT to compute for the capacitors. All inductor are power inductor and share also the same reliability.</p>
 <p>For the discrete component, design parameters (rated current, power, etc...) and package are taken into account. So there is one calculation to do for each part number.</p>
 </div>
 <div class="section" id="per-block-failure-rate">
-<h2>4.2. Per-block failure rate<a class="headerlink" href="#per-block-failure-rate" title="Permalink to this headline">¶</a></h2>
+<h2>3.2. Per-block failure rate<a class="headerlink" href="#per-block-failure-rate" title="Permalink to this headline">¶</a></h2>
 <p>To compute the per-block FITs, all component have been associated with the appropriate block. As passive components (R, L and C) have same reliability, it is easier to count the component per block (count the number of resistor, capacitor and inductors in each block). This process can be done using a spread sheet and indicating the number of each component type in each block. Of course component that appears only once in the BOM like the FPGA are only counted in one block, but this is a generic process. Then the FIT for the component type is multiplied with the component count for the block. This gives the contribution of the component type to the block reliability. All those contribution are summed to compute the FIT for the block. This process leads to the following table:</p>
 <img alt="_images/FIT_table.png" src="_images/FIT_table.png" />
 <p>The result of this calculation can be summarized in the following table:</p>
@@ -203,14 +202,14 @@
 </tr>
 </tbody>
 </table>
-<p>Represented in a graphics, this gives the <a class="reference internal" href="#fr-by-block"><span class="std std-numref">Fig. 4.2</span></a>. This figure shows that the larger contributor is the FPGA block, manly because all the large amount of decoupling capacitors. Then comes the Power supply equals with the PCI-Express bridge block.</p>
+<p>The <a class="reference internal" href="#fr-by-block"><span class="std std-numref">Fig. 3.2</span></a> representes the same data as a pie-chart. This figure shows that the larger contributor is the FPGA block, manly because of large amount of decoupling capacitors. Then comes the Power supply equals with the PCI-Express bridge block.</p>
 <div class="figure" id="id2">
 <span id="fr-by-block"></span><a class="reference internal image-reference" href="_images/FR_dist_by_func.png"><img alt="_images/FR_dist_by_func.png" src="_images/FR_dist_by_func.png" style="width: 581.0px; height: 271.59999999999997px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Failure rate distribution by block.</span></p>
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Failure rate distribution by block.</span></p>
 </div>
 </div>
 <div class="section" id="circuit-failure-rate">
-<h2>4.3. Circuit failure rate<a class="headerlink" href="#circuit-failure-rate" title="Permalink to this headline">¶</a></h2>
+<h2>3.3. Circuit failure rate<a class="headerlink" href="#circuit-failure-rate" title="Permalink to this headline">¶</a></h2>
 <p>As all block are necessary for the circuit proper function, the circuit failure rate is simply computed by summing the FIT from all blocks:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -250,7 +249,7 @@
 </tbody>
 </table>
 <p>So the whole circuit have 681 FIT, this is equivalent to a MTBF of 1468230 hours which is approximative 168 years.</p>
-<p><strong>Note**</strong> that this calculation does not take into account the reliability of the bare PCB and the connections (solders). This is because those data were unknown.</p>
+<p><strong>Note</strong> that this calculation does not take into account the reliability of the bare PCB and the connections (solders), because those data were missing in the given task.</p>
 <p>Using the exponential law, we can compute the following relations:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -289,8 +288,8 @@
 </div>
 </div>
 <div class="section" id="conclusion">
-<h1>5. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h1>
-<p>This project was a simple example to show the process of computing a electronic circuit card reliability. But already, it shows all the difficulties and the problems linked to it, getting thermostable manufacturer data for example.</p>
+<h1>4. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h1>
+<p>This project was a simple example to show the process of computing a electronic circuit card reliability. But already, it shows all the difficulties and the problems linked to it, getting reliable manufacturer data for example.</p>
 </div>
 
 
@@ -301,7 +300,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="background.html" class="btn btn-neutral" title="3. Theoretical background" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="background.html" class="btn btn-neutral" title="2. Theoretical background" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -332,7 +331,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0',
+            VERSION:'31.12.2016',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

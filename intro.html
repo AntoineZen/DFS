@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Introduction &mdash; DFS: Electronic circuit analysis (CERN) 0.0 documentation</title>
+  <title>1. Introduction &mdash; DFS: Electronic circuit analysis (CERN) 31.12.2016 documentation</title>
   
 
   
@@ -33,8 +33,8 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="DFS: Electronic circuit analysis (CERN) 0.0 documentation" href="index.html"/>
-        <link rel="next" title="3. Theoretical background" href="background.html"/>
+    <link rel="top" title="DFS: Electronic circuit analysis (CERN) 31.12.2016 documentation" href="index.html"/>
+        <link rel="next" title="2. Theoretical background" href="background.html"/>
         <link rel="prev" title="DFS: Electronic circuit analysis (CERN)" href="index.html"/> 
 
   
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0.0
+                31.12.2016
               </div>
             
           
@@ -86,11 +86,13 @@
             
                 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#circuit-overview">2. Circuit overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="background.html">3. Theoretical background</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analysis.html">4. Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analysis.html#conclusion">5. Conclusion</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#circuit-overview">1.1. Circuit overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="background.html">2. Theoretical background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">3. Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html#conclusion">4. Conclusion</a></li>
 </ul>
 
             
@@ -137,26 +139,25 @@
             
   <div class="section" id="introduction">
 <h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>This document describes the reliability analysis done on the &#8220;SPEC&#8221; card developed by the CERN in the context of the OHWR project. The final goal of this analysis is to compute the &#8220;Mean Time Between Failures&#8221; or MTBF of the whole card.</p>
-</div>
+<p>This document describes the reliability analysis done on the &#8220;SPEC&#8221; card developed by the CERN in the context of the OHWR project. SPEC stand for <strong>S</strong>imple <strong>P</strong>CI-<strong>E</strong>press <strong>C</strong>arier. The final goal of this analysis is to compute the &#8220;Mean Time Between Failures&#8221; or MTBF of the whole card.</p>
 <div class="section" id="circuit-overview">
-<h1>2. Circuit overview<a class="headerlink" href="#circuit-overview" title="Permalink to this headline">¶</a></h1>
+<h2>1.1. Circuit overview<a class="headerlink" href="#circuit-overview" title="Permalink to this headline">¶</a></h2>
 <div class="figure" id="id1">
 <img alt="_images/spec_v1.1_top.JPG" src="_images/spec_v1.1_top.JPG" />
-<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">SPEC V4 board</span></p>
+<p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text">SPEC V4 board</span></p>
 </div>
-<p>The proposed Circuit (SPEC V4) is made of a single PCB. This PCB is a FGPA card meant to be used inside a PC connected trough the PCI-Express (PCIe) bus. The card also offers a FMC connector and SFP interface. FMC stand for &#8220;FPGA Mezzanine Connector&#8221;, it is an open standard that propose standardized between a FPGA board and mezzanine cards. SFP is a generic connector for cooper and fiber based Ethernet. The <a class="reference internal" href="#fmc-mez-example"><span class="std std-numref">Fig. 2.2</span></a> is an example of FMC mezzanine cards:</p>
+<p>The proposed Circuit (SPEC V4) is made of a single PCB. This PCB is a FGPA card meant to be used inside a PC connected trough the PCI-Express (PCIe) bus. The card also offers a FMC connector and SFP interface. FMC stand for &#8220;FPGA Mezzanine Connector&#8221;, it is an open standard that propose an interface between a FPGA board and mezzanine cards. SFP is a generic connector for cooper and fiber based Ethernet. The <a class="reference internal" href="#fmc-mez-example"><span class="std std-numref">Fig. 1.2</span></a> is an example of FMC mezzanine cards:</p>
 <div class="figure" id="id2">
 <span id="fmc-mez-example"></span><img alt="_images/UMFT601X.jpg" src="_images/UMFT601X.jpg" />
-<p class="caption"><span class="caption-number">Fig. 2.2 </span><span class="caption-text">FMC mezzanine card example</span></p>
+<p class="caption"><span class="caption-number">Fig. 1.2 </span><span class="caption-text">FMC mezzanine card example</span></p>
 </div>
 <p>This card can be also utilized stand-alone thanks to a power connector, USB to serial bridge and USB JTAG interface.</p>
 <p>This card can be decomposed in the following blocks:</p>
 <dl class="docutils">
 <dt>FPGA</dt>
-<dd>The Xilinx Spartan 6FGPA is the central piece of this circuit. This block also contains all supporting passives components (Decoupling caps, line terminations resistors, etc...)</dd>
+<dd>The Xilinx Spartan 6 FGPA is the central piece of this circuit. This block also contains all supporting passives components (Decoupling caps, line terminations resistors, etc...)</dd>
 <dt>PCIe Bridge</dt>
-<dd>This block is converting the PCIe signal to signal that can be interfaced to the FPGA. This block is build around the Genum GN4124 IC.</dd>
+<dd>This block is converting the PCIe signals to signals that can be interfaced to the FPGA. This block is build around the Genum GN4124 IC.</dd>
 <dt>DDR</dt>
 <dd>The RAM for the FPGA.</dd>
 <dt>PSU</dt>
@@ -164,10 +165,11 @@
 <dt>Clock Generation</dt>
 <dd>Quartz, oscillator and clock distributions ICs.</dd>
 </dl>
-<p>From this, the block diagram from <a class="reference internal" href="#block-diagram"><span class="std std-numref">Fig. 2.3</span></a> can be drawn:</p>
+<p>From this, the block diagram from <a class="reference internal" href="#block-diagram"><span class="std std-numref">Fig. 1.3</span></a> can be drawn:</p>
 <div class="figure" id="id3">
 <span id="block-diagram"></span><img alt="Block diagram." src="_images/Block_diagram.png" />
-<p class="caption"><span class="caption-number">Fig. 2.3 </span><span class="caption-text">SPEC v4 Block diagram.</span></p>
+<p class="caption"><span class="caption-number">Fig. 1.3 </span><span class="caption-text">SPEC v4 Block diagram.</span></p>
+</div>
 </div>
 </div>
 
@@ -178,7 +180,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="background.html" class="btn btn-neutral float-right" title="3. Theoretical background" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="background.html" class="btn btn-neutral float-right" title="2. Theoretical background" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="DFS: Electronic circuit analysis (CERN)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -212,7 +214,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0',
+            VERSION:'31.12.2016',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
